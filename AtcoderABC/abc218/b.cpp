@@ -13,17 +13,24 @@ using PPL = pair<pair<ll,ll>,ll>;
 #define mp make_pair
 #define tp make_tuple
 #define ALL(vec) vec.begin(), vec.end()
+template <class T> inline bool chmax(T& a,T b) {if(a<b){a=b;return true;}return false;}
+template <class T> inline bool chmin(T& a,T b) {if(a>b){a=b;return true;}return false;}
 ll mod = 1000000007;
 ll mod2 = 998244353;
 
-vector<ll> a;
-
 int main() {
-    ll n;cin>>n;
-    a.resize(n);
-    auto f = [&](auto self, int i) {
-        if (i == 0 || i == 1) return 1;
-        return self(self, i-1) + self(self, i-2);
-    };
-    cout << f(f, n) << endl;
+    cin.tie(0);
+    ios::sync_with_stdio(false);
+
+    vector<char> ans(26);
+
+    rep(i,0,26) {
+        ll n;cin>>n;
+        n--;
+        ans[i] = 'a' + n;
+    } 
+    rep(i,0,26) {
+        cout << ans[i];
+    }
+    cout <<  endl;
 }
